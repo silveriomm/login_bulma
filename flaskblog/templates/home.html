@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<div class="tile is-ancestor">
+  <div class="tile is-9">
+
+    {% for post in posts %}
+    <div class="card m-1">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+          </div>
+          <div class="media-content">
+            <p class="title is-4">{{ post.title }}</p>
+            <p class="subtitle is-6">By {{ post.author.username }}</p>
+          </div>
+        </div>
+
+        <div class="content">
+            {{ post.content }}
+          <a href="#">Read More...</a>
+          <br>
+          <time>{{ post.date_posted }}</time>
+        </div>
+      </div>
+    </div> 
+    {% endfor %}
+
+  </div>
+  <div class="tile box is-vertical has-text-centered" style="background-color:mediumaquamarine;">
+    <!-- This tile will take the rest: 2/3 -->
+    POST
+  </div>
+</div>
+</div>
+{% endblock %}
