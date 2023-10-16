@@ -3,34 +3,46 @@
 {% block content %}
 <div class="container">
 <div class="tile is-ancestor">
-  <div class="tile is-9">
-
+  <div class="columns is-multiline tile is-9">
+  
     {% for post in posts %}
-    <div class="card m-1">
+
+    <div class="column is-four-fifths card m-1">
       <div class="card-content">
         <div class="media">
           <div class="media-left">
+            <img class="image is-96x96" src="{{ url_for('static', filename='img/' + post.author.image_file) }}">
           </div>
           <div class="media-content">
-            <p class="title is-4">{{ post.title }}</p>
+            <a href="{{ url_for('post', post_id=post.id) }}">
+              <p class="title is-4">{{ post.title }}</p>
+            </a>
             <p class="subtitle is-6">By {{ post.author.username }}</p>
+            <time>{{ post.date_posted.strftime('%d/%m/%Y') }}</time>
           </div>
         </div>
 
         <div class="content">
             {{ post.content }}
-          <a href="#">Read More...</a>
-          <br>
-          <time>{{ post.date_posted }}</time>
         </div>
       </div>
     </div> 
+    
     {% endfor %}
 
   </div>
-  <div class="tile box is-vertical has-text-centered" style="background-color:mediumaquamarine;">
+  <div class="tile box is-vertical" style="border:1px solid;">
     <!-- This tile will take the rest: 2/3 -->
-    POST
+    <h2 class="title is-2 has-text-centered">Our Side Bar</h2>
+    <ul>
+      <li>One line </li>
+      <li>Two line </li>
+      <li>Three line </li>
+      <li>Four line </li>
+      <li>Five line </li>
+      <li>Six line </li>
+    </ul>
+    <p>Seven Line</p:
   </div>
 </div>
 </div>
